@@ -1,0 +1,25 @@
+/* Estilos para la barra principal */
+.main_bar {
+    background-color: #4B2C91; /* Púrpura oscuro */
+    color: #FFFFFF; /* Blanco */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el nombre de la marca */
+#brand {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFFFFF; /* Blanco */
+}
+
+/* Estilos para la información general */
+.info_general {
+    background-color: #F3B562; /* Amarillo dorado */
+    color: #333333; /* Gris oscuro */
+    padding: 10px;
+    text-align: center;
+}

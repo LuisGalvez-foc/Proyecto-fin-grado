@@ -1,0 +1,57 @@
+/* Estilos para los campos de entrada */
+#entrada,
+#entrada_producto {
+    width: 60%;
+    font-size: 1.2em;
+    color: #264653; /* Gris oscuro accesible */
+    border-radius: 5px;
+    padding: 8px;
+    border: 1px solid #6A0572; /* Púrpura oscuro */
+    margin-bottom: 15px;
+    outline: none;
+    background-color: #f0f4f8; /* Fondo claro */
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#entrada:focus,
+#entrada_producto:focus {
+    border-color: #AB83A1; /* Púrpura suave */
+    box-shadow: 0 0 5px rgba(171, 131, 161, 0.5);
+}
+
+/* Estilos para las etiquetas */
+label {
+    padding: 5px;
+    margin: 5px 5px 10px 0;
+    display: block;
+    color: #6A0572; /* Púrpura oscuro */
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Estilos para las tablas */
+table {
+    margin-top: 10px;
+    border: 1px solid #6A0572; /* Púrpura oscuro */
+    padding: 5px;
+    color: #264653; /* Gris oscuro */
+    border-radius: 8px;
+    width: 100%;
+    background-color: #ffffff; /* Blanco */
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.datos {
+    padding: 8px;
+    border-bottom: 1px solid #e9c46a; /* Color de borde más suave */
+    background-color: #f9fafb; /* Fondo claro */
+    color: #1d3557; /* Gris oscuro */
+}
+
+/* Estilo inline */
+.in_line {
+    display: inline;
+    width: 20%;
+}

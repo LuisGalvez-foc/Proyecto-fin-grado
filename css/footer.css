@@ -1,0 +1,46 @@
+.footer {
+    background-color: #4B2C91; /* Púrpura oscuro */
+    color: #FFFFFF; /* Blanco */
+    padding: 10px 0; /* Reducir el padding */
+    text-align: center; /* Centrar el texto */
+    position: fixed; /* Fijar el footer en la parte inferior */
+    bottom: 0; /* Alinear al fondo */
+    left: 0; /* Alinear a la izquierda */
+    right: 0px; /* Alinear a la derecha */
+    padding: 30px;
+}
+
+
+/* Estilos para los enlaces en el footer */
+.footer a {
+    color: #F3B562; /* Amarillo dorado */
+    transition: color 0.3s ease; /* Transición suave para el color */
+}
+
+.footer a:hover {
+    color: #A77BCA; /* Púrpura suave al pasar el ratón */
+}
+
+/* Estilos para el contenido del footer */
+.footer .content {
+    max-width: 1200px; /* Ancho máximo del contenido */
+    margin: 0 auto; /* Centrar el contenido */
+    padding: 0 20px; /* Añadir padding lateral */
+}
+
+/* Estilos para la lista de enlaces */
+.footer ul {
+    list-style: none; /* Sin viñetas */
+    display: flex; /* Usar flexbox para la lista */
+    justify-content: center; /* Centrar los elementos */
+    margin-bottom: 15px; /* Espacio inferior */
+}
+
+.footer ul li {
+    margin: 0 15px; /* Espaciado entre los elementos de la lista */
+}
+
+.footer .copyr {
+    font-size: 0.9em; /* Tamaño de fuente más pequeño */
+    opacity: 0.7; /* Opacidad para un efecto sutil */
+}

@@ -1,0 +1,145 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #6A0572;
+}
+
+button {
+    background-color: #6A0572;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #AB83A1;
+}
+
+.section {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #dd2891;
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.tabla-carrito {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.tabla-carrito th,
+.tabla-carrito td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.totales {
+    margin-top: 20px;
+    background-color: #f1f1f1;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.acciones-venta {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#quitar_cliente {
+    margin-top: 10px;
+}
+.resultado-producto {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.resultado-producto h4 {
+    color: #6A0572;
+    margin: 0;
+}
+
+.resultado-producto p {
+    margin: 5px 0;
+}
+
+.resultado-producto button {
+    background-color: #6A0572;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.resultado-producto button:hover {
+    background-color: #AB83A1;
+}
+.carrito-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.producto-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.art-selected {
+    font-weight: bold;
+}
+
+.cantidad, .precio {
+    margin-left: 10px;
+}
+
+button {
+    background-color: #6A0572;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #AB83A1;
+}

@@ -1,0 +1,74 @@
+/* Reset y estilos base */
+/* base.css */
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Contenedor principal */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    min-height: calc(100vh - 100px); /* Ajustar la altura mínima para que ocupe el espacio restante */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-bottom: 0; /* Asegúrate de que no haya margen inferior */
+}
+
+/* Navegación */
+.navegador {
+    background-color: #6A0572;
+    padding: 10px 0;
+}
+
+.navegador .lista {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.navegador .link {
+    margin: 0 15px;
+}
+
+.navegador .link a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navegador .link a:hover {
+    color: #F3B562;
+}
+
+/* Encabezado */
+.main_bar {
+    background-color: #6A0572;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+#brand {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.info_general {
+    background-color: #F3B562;
+    padding: 10px;
+    text-align: center;
+}
+

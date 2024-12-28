@@ -1,0 +1,70 @@
+/* Estilos para la sección de información general */
+.info_general2 {
+    margin: 20px auto; /* Margen automático para centrar */
+    font-size: 1em; /* Tamaño de fuente */
+    background-color: #4B2C91; /* Color de fondo púrpura oscuro */
+    padding: 15px; /* Espaciado interno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    border: 2px solid #A77BCA; /* Púrpura suave */
+    color: #fff; /* Color del texto */
+    text-align: center; /* Centrar texto */
+    border-radius: 10px; /* Bordes redondeados */
+    transition: background-color 0.3s, transform 0.3s; /* Transición suave */
+}
+
+/* Efecto hover para la sección de información general */
+.info_general2:hover {
+    background-color: #6A0572; /* Color más oscuro al pasar el ratón */
+    transform: scale(1.02); /* Efecto de escala al pasar el ratón */
+}
+
+/* Estilos para los párrafos dentro de la sección de información general */
+.info_general2 p {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4); /* Sombra de texto más sutil */
+    margin: 10px 0; /* Espaciado superior e inferior */
+}
+
+/* Estilos para el contenedor de pedido */
+#pedido {
+    min-height: 400px; /* Altura mínima */
+    background-color: rgba(255, 255, 255, 0.95); /* Color de fondo con opacidad */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border: 1px solid #ddd; /* Borde gris claro */
+}
+
+/* Estilos para el nombre del cliente seleccionado */
+#cliente_seleccionado_nombre {
+    font-size: 1.5em; /* Tamaño de fuente */
+    font-weight: bold; /* Negrita */
+    color: #6A0572; /* Púrpura oscuro */
+    margin-bottom: 10px; /* Espaciado inferior */
+}
+
+/* Estilos para el contenedor de nuevo pedido */
+#nuevo_pedido {
+    display: none; /* Ocultar por defecto */
+    padding: 20px; /* Espaciado interno */
+    background-color: #f9f9f9; /* Color de fondo */
+    border: 1px solid #A77BCA; /* Borde púrpura suave */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: all 0.3s ease; /* Transición suave */
+}
+
+/* Estilos para los botones dentro del contenedor de nuevo pedido */
+#nuevo_pedido button {
+    background-color: #6A0572; /* Púrpura oscuro */
+    color: #fff; /* Texto blanco */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar cursor al pasar */
+    transition: background-color 0.3s, transform 0.2s; /* Transición suave */
+}
+
+#nuevo_pedido button:hover {
+    background-color: #AB83A1; /* Púrpura suave al pasar el ratón */
+    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+}

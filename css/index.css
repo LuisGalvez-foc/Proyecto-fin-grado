@@ -1,0 +1,62 @@
+/* Estilos para el contenedor principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #EAE7E2; /* Gris claro */
+    margin-bottom: 10px; /* Reducir el margen inferior */
+}
+
+/* index.css */
+/* Estilos para el menú central */
+.menu_central {
+    display: flex;
+    flex-wrap: wrap; /* Permitir que los elementos se envuelvan */
+    justify-content: center; /* Centrar los elementos */
+    gap: 90px; /* Espaciado entre los elementos */
+    margin: 5em; /* Añadir margen superior e inferior */
+    
+}
+
+/* Estilos para cada menú */
+.menu {
+    margin: 5px; /* Espaciado entre los elementos del menú */
+    padding: 15px; /* Espaciado interno */
+    border: 2px solid #A77BCA; /* Púrpura suave */
+    border-radius: 10px;
+    background-color: #FFFFFF; /* Blanco */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(106, 5, 114, 0.1);
+    width: 200px; /* Ancho fijo para cada menú */
+}
+
+/* Efecto hover para el menú */
+.menu:hover {
+    transform: translateY(-3px); /* Efecto de elevación */
+    background-color: #A77BCA; /* Púrpura suave */
+    box-shadow: 0 6px 12px rgba(106, 5, 114, 0.2);
+}
+
+/* Estilos para los botones */
+.boton {
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Estilos para el texto del botón */
+.texto_boton {
+    font-size: 16px;
+    font-weight: bold;
+    color: #4B2C91; /* Púrpura oscuro */
+    transition: color 0.3s ease;
+
+}
+
+/* Efecto hover para el texto del botón en el menú */
+.menu:hover .texto_boton {
+    color: #FFFFFF; /* Blanco */
+}
+.menu a {
+    text-decoration: none !important; /* Forzar la eliminación del subrayado */
+    color: inherit; /* Heredar el color del texto del contenedor */
+}
