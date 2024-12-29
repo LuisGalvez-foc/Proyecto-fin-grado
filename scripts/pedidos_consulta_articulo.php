@@ -26,8 +26,10 @@ if (isset($_GET['cadena'])) {
     if ($resultado->num_rows > 0) {
         foreach ($resultado as $key) {
             echo '<div class="resultado-producto">';
-            echo '<h4>Modelo: ' . htmlspecialchars($key['descripcion']) . '</h4>'; // Usar htmlspecialchars para evitar XSS
-            echo '<p>Color: ' . htmlspecialchars ($key['color']) . '</p>';
+            // Agregar la imagen del producto
+            echo '<img src="' . htmlspecialchars($key['imagen']) . '" alt="' . htmlspecialchars($key['descripcion']) . '" style="max-width: 100px; height: auto;">';
+            echo '<h4>Modelo: ' . htmlspecialchars($key['descripcion']) . '</h4>'; 
+            echo '<p>Color: ' . htmlspecialchars($key['color']) . '</p>';
             echo '<p>Talle: ' . htmlspecialchars($key['talle']) . '</p>';
             echo '<p>Cantidad: ' . htmlspecialchars($key['cantidad']) . '</p>';
             echo '<p>Precio: $' . number_format($key['precio'], 2) . '</p>';

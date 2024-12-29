@@ -53,7 +53,10 @@ include('global/conexion.php');
         <div class="lista-pedidos">
             <?php
             // Suponiendo que tienes una consulta que obtiene los pedidos
-            $query = "SELECT * FROM pedido"; // Ajusta la consulta según tu lógica
+            $query = "SELECT p.id_pedido, p.id_cliente, p.entregado, p.importe_total, pl.id_producto, pr.descripcion, pr.imagen 
+                      FROM pedido p 
+                      JOIN pedido_lista pl ON p.id_pedido = pl.id_pedido 
+                      JOIN productos pr ON pl.id_producto = pr.id_producto"; // Ajusta la consulta según tu lógica
             $result = $con->query($query);
 
             while ($pedido = $result->fetch_assoc()) {
@@ -63,6 +66,8 @@ include('global/conexion.php');
                     <p>Cliente ID: <?php echo $pedido['id_cliente']; ?></p>
                     <p>Estado: <?php echo $pedido['entregado']; ?></p>
                     <p>Importe Total: $<?php echo $pedido['importe_total']; ?></p>
+                    <p>Producto: <?php echo $pedido['descripcion']; ?></p>
+                    <img src="<?php echo htmlspecialchars($pedido['imagen']); ?>" alt="<?php echo htmlspecialchars($pedido['descripcion']); ?>" style="max-width: 100px; height: auto;">
 
                     <!-- Botón para cambiar el estado a entregado -->
                     <button onclick="cambiarEstadoEntregado(<?php echo $pedido['id_pedido']; ?>)">Marcar como Entregado</button>
@@ -70,6 +75,7 @@ include('global/conexion.php');
             <?php
             }
             ?>
+        </ ```php
         </div>
     </div><!--container-->
 
@@ -162,8 +168,10 @@ include('global/conexion.php');
                 document.getElementById('total').innerHTML = '$ ' + total.toFixed(2);
             };
 
+            // Def ```php
             // Definición de la función removerProducto
             window.removerProducto = function(id_producto) {
+                console.log("Intentando eliminar el producto con ID: " + id_producto);
                 let item = document.getElementById('producto_' + id_producto);
                 if (item) {
                     item.remove(); // Eliminar el elemento del carrito

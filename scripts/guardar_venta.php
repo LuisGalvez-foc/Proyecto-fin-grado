@@ -1,22 +1,13 @@
 <?php
 include('../global/conexion.php');
-
-// Habilitar reporte de errores
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+session_start(); // Asegúrate de que la sesión esté iniciada
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $cliente_id = isset($_POST['cliente_id']) ? $_POST['cliente_id'] : null;
-    $articulos_json = isset($_POST['articulos']) ? $_POST['articulos'] : null;
-
-    if ($cliente_id === null || $articulos_json === null) {
-        echo "Error: Datos incompletos";
-        exit;
-    }
+    $cliente_id = $_POST['cliente_id'];
+    $articulos_json = $_POST['articulos'];
 
     // Decodificar artículos
     $articulos = json_decode($articulos_json, true);
-    $subtotal = 0;
 
     // Verificar si el cliente existe
     $query = "SELECT * FROM clientes WHERE id_cliente = ?";
@@ -26,54 +17,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $resultado = $stmt->get_result();
 
     if ($resultado->num_rows > 0) {
-        // Insertar venta
-        $query_venta = "INSERT INTO ventas (cliente_id, subtotal) VALUES (?, ?)";
-        $stmt_venta = $con->prepare($query_venta);
-        $stmt_venta->bind_param("id", $cliente_id, $subtotal);
+        // Calcular el subtotal basado en los artículos
+        $subtotal = 0; // Inicializa el subtotal
 
-        if ($stmt_venta->execute()) {
-            $venta_id = $stmt_venta->insert_id; // Obtener el ID de la venta
+        foreach ($articulos as $articulo) {
+            // Aquí deberías obtener el precio del artículo
+            $query_precio = "SELECT precio FROM productos WHERE id_producto = ?";
+            $stmt_precio = $con->prepare($query_precio);
+            $stmt_precio->bind_param("i", $articulo['id']);
+            $stmt_precio->execute();
+            $resultado_precio = $stmt_precio->get_result();
+            $producto = $resultado_precio->fetch_assoc();
 
-            // Insertar artículos vendidos y actualizar la cantidad
-            foreach ($articulos as $articulo) {
-                $query_articulo = "SELECT precio, cantidad FROM productos WHERE id_producto = ?";
-                $stmt_articulo = $con->prepare($query_articulo);
-                $stmt_articulo->bind_param("i", $articulo['id']);
-                $stmt_articulo->execute();
-                $resultado_articulo = $stmt_articulo->get_result();
-                $producto = $resultado_articulo->fetch_assoc();
-
-                if ($producto) {
-                    $precio = $producto['precio'];
-                    $nueva_cantidad = $producto['cantidad'] - $articulo['cantidad'];
-
-                    // Insertar en la tabla de ventas_articulos
-                    $query_insert_articulo = "INSERT INTO ventas_articulos (venta_id, producto_id, cantidad, precio) VALUES (?, ?, ?, ?)";
-                    $stmt_insert_articulo = $con->prepare($query_insert_articulo);
-                    $stmt_insert_articulo->bind_param("iiid", $venta_id, $articulo['id'], $articulo['cantidad'], $precio);
-                    $stmt_insert_articulo->execute();
-
-                    // Actualizar la cantidad en la tabla de productos
-                    if ($nueva_cantidad <= 0) {
-                        // Si la cantidad llega a 0, eliminar el producto
-                        $query_delete_producto = "DELETE FROM productos WHERE id_producto = ?";
-                        $stmt_delete_producto = $con->prepare($query_delete_producto);
-                        $stmt_delete_producto->bind_param("i", $articulo['id']);
-                        $stmt_delete_producto->execute();
-                    } else {
-                        // Si la cantidad es mayor que 0, actualizar la cantidad
-                        $query_update_producto = "UPDATE productos SET cantidad = ? WHERE id_producto = ?";
-                        $stmt_update_producto = $con->prepare($query_update_producto);
-                        $stmt_update_producto->bind_param("ii", $nueva_cantidad, $articulo['id']);
-                        $stmt_update_producto->execute();
-                    }
-                }
+            if ($producto) {
+                $subtotal += $producto['precio'] * $articulo['cantidad'];
             }
-
-            echo "Venta guardada con éxito.";
-        } else {
-            echo "Error al guardar la venta: " . $stmt_venta->error;
         }
+
+        // Obtener el ID de usuario de la sesión
+        $id_usuario = $_SESSION['id_usuario']; // Asegúrate de que este valor esté establecido en la sesión
+
+        // Insertar el pedido
+        $sql_pedido = "INSERT INTO pedido (id_cliente, id_usuario, pagado_total, fecha_entrega, entregado, importe_total) VALUES (?, ?, ?, ?, ?, ?)";
+        $stmt = $con->prepare($sql_pedido);
+        if (!$stmt) {
+            die("Error en la preparación de la consulta: " . $con->error);
+        }
+
+        // Asumiendo que ya has definido las variables necesarias
+        $pagado_total = 0; // Cambia esto según tu lógica
+        $fecha_entrega = date('Y-m-d'); // Cambia esto según tu lógica
+        $entregado = 'No'; // Cambia esto según tu lógica
+        $importe_total = $subtotal; // Cambia esto según tu lógica
+
+        $stmt->bind_param("iiissd", $cliente_id, $id_usuario, $pagado_total, $fecha_entrega, $entregado, $importe_total);
+
+        if (!$stmt->execute()) {
+            die("Error al ejecutar la consulta: " . $stmt->error);
+        }
+
+        echo "Pedido guardado con éxito.";
     } else {
         echo "Error: Cliente no encontrado.";
     }

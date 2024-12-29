@@ -17,7 +17,7 @@ if (isset($_GET['producto']) && is_numeric($_GET['producto'])) {
     $producto = $resultado->fetch_assoc();
 
     if ($producto) {
-        echo '<div class="producto-item" data-id="' . $producto['id_producto'] . '">';
+        echo '<div class="producto-item" id="producto_' . $producto['id_producto'] . '" data-id="' . $producto['id_producto'] . '">';
         echo '<span class="art-selected">' . $producto['descripcion'] . '</span>';
         echo '<span class="cantidad">Cantidad: <span>1</span></span>';
         echo '<span class="precio">Precio: $<span>' . number_format($producto['precio'], 2) . '</span></span>';

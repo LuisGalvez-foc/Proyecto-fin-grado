@@ -71,4 +71,6 @@ html, body {
     padding: 10px;
     text-align: center;
 }
-
+a{
+    text-decoration-line: none;
+}

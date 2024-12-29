@@ -32,6 +32,14 @@ if ($consulta = $con->query($sql)) {
         <input type="number" id="precio" value="<?php echo $key['precio'];?>" maxlength="10">
         <br>
 
+        <label for="" class="in_line">Imagen Actual</label>
+        <img src="<?php echo htmlspecialchars($key['imagen']); ?>" alt="<?php echo htmlspecialchars($key['descripcion']); ?>" style="width: 100px; height: auto;">
+        <br>
+
+        <label for="" class="in_line">Cambiar Imagen</label>
+        <input type="file" id="imagen" name="imagen" accept="image/*">
+        <br>
+
         <button id="guardar_edit" onclick="guardarEdicion(<?php echo $key['id_producto'];?>)">Guardar Cambios</button>
         <button onclick="alternarVisibilidad(edit_prod)">Cancelar</button>
         <?php

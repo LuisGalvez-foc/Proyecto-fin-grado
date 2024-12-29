@@ -28,7 +28,8 @@ $tabla_productos = "CREATE TABLE IF NOT EXISTS productos(
     descripcion VARCHAR(80) NOT NULL,
     color VARCHAR(30) NOT NULL,
     cantidad INT DEFAULT 0,
-    talle VARCHAR(8) DEFAULT NULL
+    talle VARCHAR(8) DEFAULT NULL,
+    imagen VARCHAR(255) DEFAULT NULL
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8";
 
 // Crear tabla movimientos

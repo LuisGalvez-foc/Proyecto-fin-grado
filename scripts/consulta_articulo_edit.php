@@ -20,6 +20,9 @@ if ($cadena != '') {
                 <td class="datos talle" width="5%"><?php echo $key['talle']; ?></td>
                 <td class="datos cantidad" width="5%"><?php echo $key['cantidad']; ?></td>
                 <td class="datos precio" width="8%"><?php echo $key['precio']; ?></td>
+                <td class="datos imagen" width="10%">
+                    <img src="<?php echo htmlspecialchars($key['imagen']); ?>" alt="<?php echo htmlspecialchars($key['descripcion']); ?>" style="max-width: 100px; height: auto;">
+                </td>
                 <td class="datos botones" width="16%">
                     <button class="boton_edit_prod" onclick="editarProducto(<?php echo $key['id_producto']; ?>)">Editar</button>
                     <button onclick="borrarProducto(<?php echo $key['id_producto']; ?>)">Borrar</button>
@@ -30,3 +33,4 @@ if ($cadena != '') {
     }
 }
 ?>
+<?php echo '<script>filas = ' . $con->affected_rows . ';</script>'; ?>

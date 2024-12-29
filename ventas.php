@@ -73,22 +73,22 @@ include('global/conexion.php');
 
             // Definición de la función selectedCliente
             window.selectedCliente = function(cliente_id, descuento) {
-    var cliente_nombre = document.getElementById('nombre_cliente');
-    var div_nombre_cliente = document.getElementById('cliente_seleccionado_nombre');
-    div_nombre_cliente.innerHTML = cliente_nombre.innerHTML; // Mostrar el nombre del cliente
-    document.getElementById('quitar_cliente').style.display = 'inline'; // Mostrar el botón de quitar
+                var cliente_nombre = document.getElementById('nombre_cliente');
+                var div_nombre_cliente = document.getElementById('cliente_seleccionado_nombre');
+                div_nombre_cliente.innerHTML = cliente_nombre.innerHTML; // Mostrar el nombre del cliente
+                document.getElementById('quitar_cliente').style.display = 'inline'; // Mostrar el botón de quitar
 
-    var clienteIdElement = document.getElementById('cliente_id');
-    if (clienteIdElement) {
-        clienteIdElement.value = cliente_id; // Almacenar el ID del cliente
-    }
+                var clienteIdElement = document.getElementById('cliente_id');
+                if (clienteIdElement) {
+                    clienteIdElement.value = cliente_id; // Almacenar el ID del cliente
+                }
 
-    // Almacenar el descuento en el campo oculto
-    var clienteDescuentoElement = document.getElementById('cliente_descuento');
-    if (clienteDescuentoElement) {
-        clienteDescuentoElement.value = descuento; // Almacenar el descuento
-    }
-};
+                // Almacenar el descuento en el campo oculto
+                var clienteDescuentoElement = document.getElementById('cliente_descuento');
+                if (clienteDescuentoElement) {
+                    clienteDescuentoElement.value = descuento; // Almacenar el descuento
+                }
+            };
 
             // Definición de la función quitarCliente
             window.quitarCliente = function() {
@@ -113,31 +113,32 @@ include('global/conexion.php');
 
             // Definición de la función calcularSubtotal
             var calcularSubtotal = function() {
-    let carrito = 0;
-    let precio_unit = document.getElementsByClassName('precio');
-    let descuentoPorcentaje = parseFloat(document.getElementById('cliente_descuento').value) || 0; // Obtener el descuento del cliente
-    let descuentoTotal = 0;
-    console.log("Descuento Porcentaje: ", descuentoPorcentaje);
-    // Sumar los precios
-    for (let i = 0; i < precio_unit.length; i++) {
-        // Convertir el precio a número, asegurándose de que no sea NaN
-        let precio = parseFloat(precio_unit[i].innerHTML.replace(/[^0-9.-]+/g, "")); // Eliminar cualquier carácter no numérico
-        if (!isNaN(precio)) {
-            carrito += precio; // Solo sumar si es un número válido
-        }
-    }
+                let carrito = 0;
+                let precio_unit = document.getElementsByClassName('precio');
+                let descuentoPorcentaje = parseFloat(document.getElementById('cliente_descuento').value) || 0; // Obtener el descuento del cliente
+                let descuentoTotal = 0;
+                console.log("Descuento Porcentaje: ", descuentoPorcentaje);
+                // Sumar los precios
+                for (let i = 0; i < precio_unit.length; i++) {
+                    // Convertir el precio a número, asegurándose de que no sea NaN
+                    let precio = parseFloat(precio_unit[i].innerHTML.replace(/[^0-9.-]+/g, "")); // Eliminar cualquier carácter no numérico
+                    if (!isNaN(precio)) {
+                        carrito += precio; // Solo sumar si es un número válido
+                    }
+                }
 
-    // Calcular el descuento
-    descuentoTotal = (carrito * descuentoPorcentaje) / 100;
-    let total = carrito - descuentoTotal;
+                // Calcular el descuento
+                descuentoTotal = (carrito * descuentoPorcentaje) / 100;
+                let total = carrito - descuentoTotal;
 
-    // Actualizar los campos de subtotal, descuento y total
-    document.getElementById('subtotal').innerHTML = '$ ' + carrito.toFixed(2);
-    document.getElementById('descuento').innerHTML = '$ ' + descuentoTotal.toFixed(2);
-    document.getElementById('total').innerHTML = '$ ' + total.toFixed(2);
-};
+                // Actualizar los campos de subtotal, descuento y total
+                document.getElementById('subtotal').innerHTML = '$ ' + carrito.toFixed(2);
+                document.getElementById('descuento').innerHTML = '$ ' + descuentoTotal.toFixed(2);
+                document.getElementById('total').innerHTML = '$ ' + total.toFixed(2);
+            };
             // Definición de la función removerProducto
             window.removerProducto = function(id_producto) {
+                console.log("Intentando eliminar el producto con ID: " + id_producto);
                 let item = document.getElementById('producto_' + id_producto);
                 if (item) {
                     item.remove(); // Eliminar el elemento del carrito

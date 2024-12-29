@@ -23,3 +23,19 @@
     padding: 10px;
     text-align: center;
 }
+.logout-btn {
+    color: white; /* Color del texto */
+    text-decoration: none; /* Sin subrayado */
+    background-color: #D9534F; /* Color de fondo rojo */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+    border: none; /* Sin borde */
+    font-size: 1em; /* Tamaño de fuente */
+    cursor: pointer; /* Cambiar cursor al pasar */
+}
+
+.logout-btn:hover {
+    background-color: #C9302C; /* Color más oscuro al pasar el ratón */
+    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+}
