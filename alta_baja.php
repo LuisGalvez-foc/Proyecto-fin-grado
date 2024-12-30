@@ -73,8 +73,7 @@ include('navegador.php');
     <script>
         let infoPagina = document.getElementById('infoPagina');
         infoPagina.innerHTML = 'Alta y Baja de productos';
-        let infoGeneral = document.getElementById('infoGeneralText');
-        infoGeneral.innerHTML = "Página de inicio. No hay mensajes";
+
 
         //------------- variables -----------
         var edit_prod = document.getElementById('edit_interface');

@@ -1,0 +1,43 @@
+/* navegador.css */
+
+/* Estilos para la barra de navegación */
+.navegador {
+    background-color: #9b77ef; /* Púrpura oscuro */
+    padding: 15px 0; /* Espaciado superior e inferior */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+/* Estilos para la lista de enlaces */
+.lista {
+    display: flex; /* Usar flexbox para la lista */
+    justify-content: center; /* Centrar los elementos */
+    list-style: none; /* Sin viñetas */
+    margin: 0; /* Sin margen */
+    padding: 0; /* Sin padding */
+}
+
+/* Estilos para cada enlace */
+.link {
+    margin: 0 15px; /* Espaciado entre los elementos de la lista */
+}
+
+.link a {
+    color: #FFFFFF; /* Color blanco para el texto */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: bold; /* Negrita */
+    padding: 10px 15px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+}
+
+/* Efecto hover para los enlaces */
+.link a:hover {
+    background-color: #AB83A1; /* Púrpura suave al pasar el ratón */
+    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+}
+
+/* Estilos para el enlace activo */
+.link a.active {
+    background-color: #6A0572; /* Color de fondo para el enlace activo */
+    color: #FFFFFF; /* Color blanco para el texto activo */
+}

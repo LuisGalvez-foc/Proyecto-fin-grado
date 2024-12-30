@@ -56,8 +56,7 @@ include('global/conexion.php');
         document.addEventListener('DOMContentLoaded', function() {
             let infoPagina = document.getElementById('infoPagina');
             infoPagina.innerHTML = 'Ventas';
-            let infoGeneral = document.getElementById('infoGeneralText');
-            infoGeneral.innerHTML = "Página de inicio. No hay mensajes.";
+
 
             // Agregar evento para buscar clientes
             var entrada_cliente = document.getElementById('cadena');

@@ -21,14 +21,6 @@ include('header.php');
                     </div>
                 </div>
             </a>
-            
-            <a href="alta_baja.php">
-                <div class="menu">
-                    <div class="boton">
-                        <p class="texto_boton">Alta/Baja de stock.</p>
-                    </div>
-                </div>
-            </a>
 
             <a href="pedidos.php">
                 <div class="menu">
@@ -45,7 +37,7 @@ include('header.php');
                     </div>
                 </div>
             </a>
-            
+
             <a href="clientes.php?buscar=">
                 <div class="menu">
                     <div class="boton">
@@ -53,33 +45,41 @@ include('header.php');
                     </div>
                 </div>
             </a>
-
-            <a href="administracion.php">
-                <div class="menu">
-                    <div class="boton">
-                        <p class="texto_boton">Panel de Administración.</p>
+            <?php if ($_SESSION['rol'] == 2): // Si es administrador 
+            ?>
+                <a href="alta_baja.php">
+                    <div class="menu">
+                        <div class="boton">
+                            <p class="texto_boton">Alta/Baja de stock.</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-
-            <a href="estadisticas.php">
-                <div class="menu">
-                    <div class="boton">
-                        <p class="texto_boton">Panel de estadísticas.</p>
+                </a>
+                <a href="administracion.php">
+                    <div class="menu">
+                        <div class="boton">
+                            <p class="texto_boton">Panel de Administración.</p>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+                <a href="estadisticas.php">
+                    <div class="menu">
+                        <div class="boton">
+                            <p class="texto_boton">Panel de estadísticas.</p>
+                        </div>
+                    </div>
+                </a>
+            <?php endif; ?>
         </div>
     </div>
 
     <?php
     include('footer.php');
     ?>
-    <script>	
+    <script>
         let infoPagina = document.getElementById('infoPagina');
         infoPagina.innerHTML = 'Inicio';
-        let infoGeneral = document.getElementById('infoGeneralText');
-        infoGeneral.innerHTML = "Página de inicio. No hay mensajes";
+
     </script>
 </body>
+
 </html>

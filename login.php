@@ -85,7 +85,6 @@
                 <input type="password" name="pswd" placeholder="Contraseña" required>
                 <button type="submit">Iniciar Sesión</button>
             </form>
-            <p>¿No tienes una cuenta? <a href="register.php">Regístrate aquí</a></p>
         </div>
     </div>
 </body>

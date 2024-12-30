@@ -25,6 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     // Iniciar sesión y redirigir al usuario
                     $_SESSION['id_usuario'] = $usuario['id_usuario'];
                     $_SESSION['nombre'] = $usuario['nombre'];
+                    $_SESSION['rol'] = $usuario['rol'];
                     header("Location: ../index.php");
                     exit();
                 } else {

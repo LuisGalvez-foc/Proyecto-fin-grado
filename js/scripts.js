@@ -87,6 +87,7 @@ var consultarBaseDatos = function (peticion, url, elemento = null) {
     conexionAjax.open(peticion, url, true);
     conexionAjax.send();
 };
+
 function borrarProducto(id_producto) {
     // Confirmar si el usuario realmente quiere borrar el producto
     if (confirm("¿Estás seguro de que deseas borrar este producto?")) {
@@ -103,7 +104,48 @@ function borrarProducto(id_producto) {
         conexionAjax.send();
     }
 }
+
 function buscarClientes() {
     const buscar = document.getElementById('cadena').value;
     window.location.href = 'clientes.php?cadena=' + encodeURIComponent(buscar);
+}
+
+function guardarEdicion(id_producto) {
+    // Obtener los valores de los campos de entrada
+    var descripcion = document.getElementById('descripcion').value;
+    var color = document.getElementById('color').value;
+    var talle = document.getElementById('talle').value;
+    var cantidad = document.getElementById('cantidad').value;
+    var precio = document.getElementById('precio').value;
+    var imagen = document.getElementById('imagen').files[0]; // Obtener el archivo de imagen
+
+    // Crear un objeto FormData para enviar los datos
+    var formData = new FormData();
+    formData.append('id_producto', id_producto);
+    formData.append('descripcion', descripcion);
+    formData.append('color', color);
+    formData.append('talle', talle);
+    formData.append('cantidad', cantidad);
+    formData.append('precio', precio);
+    
+    // Agregar imagen solo si se seleccionó
+    if (imagen) {
+        formData.append('imagen', imagen);
+    }
+
+    // Enviar los datos al servidor
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'scripts/update_producto.php', true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                alert(xhr.responseText); // Mostrar mensaje de éxito
+                // Recargar la página para ver los cambios
+                location.reload();
+            } else {
+                alert('Error al guardar los cambios: ' + xhr.statusText);
+            }
+        }
+    };
+    xhr.send(formData); // Enviar el FormData
 }

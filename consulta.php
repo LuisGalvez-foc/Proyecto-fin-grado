@@ -26,18 +26,20 @@ include('navegador.php');
 <script>
     let infoPagina = document.getElementById('infoPagina');
     infoPagina.innerHTML = 'Consulta';
-    let infoGeneral = document.getElementById('infoGeneralText');
-    infoGeneral.innerHTML = "Página de inicio. No hay mensajes";
 
-    var div_respuesta = document.getElementById('respuesta');
-    var entrada = document.getElementById('entrada');
-    entrada.addEventListener("keyup", function() {
-       
-        consultarBaseDatos('GET', 'scripts/consulta_articulo.php?cadena=' + entrada.value, div_respuesta);
+    var div_respuesta; // Definido en el ámbito global
+    var entrada; // Definido en el ámbito global
+
+    document.addEventListener('DOMContentLoaded', function() {
+        div_respuesta = document.getElementById('respuesta');
+        entrada = document.getElementById('entrada');
+        entrada.addEventListener("keyup", function() {
+            consultarBaseDatos('GET', 'scripts/consulta_articulo.php?cadena=' + entrada.value, div_respuesta);
+        });
     });
-    function mostrarTodos() {
-    entrada.value = ''; // Limpiar el campo de búsqueda
-    consultarBaseDatos('GET', 'scripts/consulta_articulo.php', div_respuesta); // Llamar al script sin cadena
-}
 
+    function mostrarTodos() {
+        entrada.value = ''; // Limpiar el campo de búsqueda
+        consultarBaseDatos('GET', 'scripts/consulta_articulo.php', div_respuesta); // Llamar al script sin cadena
+    }
 </script>
