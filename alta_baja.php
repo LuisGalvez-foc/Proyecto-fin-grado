@@ -63,11 +63,6 @@ include('navegador.php');
                 </table>
             </div>
         </div>
-        <div id="edit_div">
-            <div id="edit_interface">
-                <label for="">Editar Producto.</label>
-            </div>
-        </div>
     </div>
 
     <script>
@@ -88,40 +83,5 @@ include('navegador.php');
         //--------- FUNCIONES--------
         var div_respuesta = document.getElementById('respuesta');
         var entrada = document.getElementById('entrada');
-        entrada.addEventListener("keyup", function() {
-            consultarBaseDatos('GET', 'scripts/consulta_articulo_edit.php?cadena=' + entrada.value, div_respuesta);
-        });
-
-        var editarProducto = function(id_producto) {
-            consultarBaseDatos('GET', 'scripts/cargar_articulo_edit.php?id_producto=' + id_producto, edit_prod);
-            alternarVisibilidad(edit_prod);
-        }
-
-        var guardarEdicion = function(id) {
-            let e_id_producto = document.getElementById('id_producto'); // Corregido
-            let e_descripcion = document.getElementById('descripcion');
-            let e_talle = document.getElementById('talle');
-            let e_color = document.getElementById('color');
-            let e_cantidad = document.getElementById('cantidad');
-            let e_precio = document.getElementById('precio');
-
-            if (e_id_producto && e_descripcion && e_talle && e_color && e_cantidad && e_precio) {
-                actualizarProducto(e_id_producto.value, e_descripcion.value, e_talle.value, e_color.value, e_cantidad.value, e_precio.value);
-                alternarVisibilidad(edit_prod);
-            } else {
-                console.error("Uno o más elementos no están definidos.");
-            }
-        }
-
-        var actualizarProducto = function(id, descripcion = null, talle = null, color = null, cantidad = null, precio = null) {
-            let conn = new XMLHttpRequest();
-            conn.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    alert('Guardado');
-                }
-            }
-            conn.open('GET', 'scripts/update_producto.php?id_producto=' + id + '&color=' + color + '&talle=' + talle + '&precio=' + precio + '&descripcion=' + descripcion + '&cantidad=' + cantidad, true);
-            conn.send();
-        }
     </script>
 </body>

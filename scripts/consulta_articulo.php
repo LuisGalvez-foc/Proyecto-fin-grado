@@ -46,11 +46,15 @@ if ($consulta->num_rows > 0) { // Verificar si hay resultados
             <td class="datos imagen" width="10%">
                 <img src="<?php echo $ruta_imagen; ?>" alt="<?php echo htmlspecialchars($key['descripcion']); ?>" style="max-width: 100px; height: auto;">
             </td>
+            <td class="datos botones" width="16%">
+                <button class="boton_edit_prod" onclick="editarProducto(<?php echo $key['id_producto']; ?>)">Editar</button>
+                <button onclick="borrarProducto(<?php echo $key['id_producto']; ?>)">Borrar</button>
+            </td>
         </tr>
 <?php
     }
 } else {
-    echo "<tr><td colspan='7'>No se encontraron productos.</td></tr>"; // Mensaje si no hay resultados
+    echo "<tr><td colspan='8'>No se encontraron productos.</td></tr>"; // Mensaje si no hay resultados
 }
 ?>
 <?php echo '<script>filas = ' . $con->affected_rows . ';</script>'; ?>
